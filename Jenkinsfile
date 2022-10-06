@@ -26,9 +26,7 @@ pipeline {
         }
 
         stage('Docker Build') {
-             agent {
-                docker { image 'node:16.13.1-alpine' }
-            }
+            agent any
             //docker {
             //}
             //}
@@ -54,14 +52,16 @@ pipeline {
 
         }
         stage('kubectl') {
-            agent any
+             agent {
+                docker { image 'node:16.13.1-alpine' }
+    }
             //docker {
             //}
             //}
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     script {
-                        sh 'kubectl cluster-info'
+                        sh 'kubectlkubectl cluster-info'
                     }
                 }
             }
