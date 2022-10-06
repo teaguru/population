@@ -53,7 +53,7 @@ pipeline {
         }
        stage('Ansible deplpy') {
              agent {
-                docker { image 'rancher/ansible-runner:v0.0.1' }
+                docker { image 'ibmcom/ansible-lifecycle-driver:3.5.1' }
     }
             //docker {
             //}
@@ -61,10 +61,8 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
-                        sh """
-                        ansible --version
-                        """
-                    }
+                        sh 'ansible --version'
+                           }
                 }
             }
 
