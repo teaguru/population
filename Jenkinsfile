@@ -53,7 +53,7 @@ pipeline {
         }
        stage('Ansible deplpy') {
              agent {
-                docker { image 'rancher/ansible-runner' }
+                docker { image 'rancher/ansible-runner:v0.0.1' }
     }
             //docker {
             //}
