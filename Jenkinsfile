@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'docker-maven-build-slave' }
-    
+    agent any
     parameters {
         choice (
             name: 'DESTINATION',
@@ -28,7 +26,11 @@ pipeline {
         }
 
         stage('Docker Build') {
-            agent any
+            agent {
+                docker {
+                    image 'docker.crinfra.net/k8s-deploy:0.0.9'
+          }
+      }
             //docker {
             //}
             //}
