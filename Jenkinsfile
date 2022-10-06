@@ -19,6 +19,8 @@ pipeline {
                     DOCKER_REGISTRY='858784405926.dkr.ecr.us-east-1.amazonaws.com'
                     ALREADY_BUILT = false
                     DOCKER_IMAGE_NAME='population'
+                    COMMIT_HASH = sh(script: "git rev-parse HEAD", returnStdout: true).trim().take(11)
+
 
                 }
             }
