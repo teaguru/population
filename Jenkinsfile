@@ -51,17 +51,21 @@ pipeline {
             }
 
         }
-        stage('Ansible deploy') {
-            agent {
+       stage('Ansible deplpy') {
+             agent {
                 docker { image 'ansible/ansible' }
-        }
-
+    }
+            //docker {
+            //}
+            //}
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
-                        sh "ansible -i inventory ec2  -m ping --private-key Jenkins.pem -u ubuntu"
-                        //"ansible-playbook ${playbook} -i ${inventory} --private-key ${privateKeyFile} --user ${user}"                    }
-                
+                        sh """
+                        ansible -i inventory ec2 -m ping --private-key ${key} -u ubuntu'
+                        """
+                    }
+                }
             }
 
         }
