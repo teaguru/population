@@ -59,7 +59,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     script {
-                        sh 'kubectlkubectl cluster-info'
+                        sh 'kubectl cluster-info'
                     }
                 }
             }
