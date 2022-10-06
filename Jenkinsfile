@@ -52,12 +52,10 @@ pipeline {
 
         }
         stage('Ansible deploy') {
-             agent {
+            agent {
                 docker { image 'ansible/ansible' }
-    }
-            //docker {
-            //}
-            //}
+        }
+
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
