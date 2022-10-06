@@ -53,7 +53,7 @@ pipeline {
         }
        stage('Ansible deplpy') {
              agent {
-                docker { image 'flaconi/ansible' }
+                docker { image 'ibmcom/ansible-lifecycle-driver:3.5.1' }
     }
             //docker {
             //}
