@@ -62,7 +62,7 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
                         sh """
-                        ansible -i inventory ec2 -m ping --private-key ${key} -u ubuntu'
+                        ls
                         """
                     }
                 }
