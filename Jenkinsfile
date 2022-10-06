@@ -12,6 +12,15 @@ pipeline {
       ]
     )
   }
+  stages {
+    stage('Set && echo env variables') {
+      steps {
+        script {
+          sh "ls"
+
+        }
+      }
+
   post {
     failure {
       script {
