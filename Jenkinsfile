@@ -59,16 +59,15 @@ pipeline {
             //}
             //}
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
-                    script {
-                        sh """
+                script.withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
+                        script.sh """
                         cp ${script.key} /test
                         ls
                         ansible -i inventory ec2 -m ping --private-key ${key} -u ubuntu
                         """
                            }
                 }
-            }
+            
 
         }
     }
