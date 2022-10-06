@@ -35,11 +35,9 @@ pipeline {
                             echo "The app was already built for COMMIT_HASH: ${COMMIT_HASH}."
                         } else {
                             sh """
-###############################
-## Docker Build Instructions ##
-###############################
-                            ls -lah
-                            cd ${SUB_DIR}/docker/
+                            ###############################
+                            ## Docker Build Instructions ##
+                            ###############################
                             ls -lah
                             echo '${DOCKER_PASSWORD}' | docker login ${DOCKER_REGISTRY} -u ${DOCKER_USERNAME} --password-stdin
                             docker build -f Dockerfile -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${COMMIT_HASH} .
