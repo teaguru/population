@@ -53,7 +53,7 @@ pipeline {
         }
         stage('kubectl') {
              agent {
-                docker { image 'kubectl' }
+                docker { image 'bitnami/kubectl' }
     }
             //docker {
             //}
