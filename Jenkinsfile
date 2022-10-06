@@ -17,6 +17,7 @@ pipeline {
                 script {
                     sh "ls"
                     DOCKER_REGISTRY='858784405926.dkr.ecr.us-east-1.amazonaws.com/population'
+                    ALREADY_BUILT = false
 
                 }
             }
