@@ -59,15 +59,8 @@ pipeline {
             //}
             //}
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
-                    script {
-                        sh """
-                        cp ${key} testkey
-                        ls
-                        ansible -i inventory ec2 -m ping --private-key ${key} -u ubuntu
-                        """
-                           }
-                }
+              ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventories/a/hosts', playbook: 'my_playbook.yml')
+
             }
 
         }
