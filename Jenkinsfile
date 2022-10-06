@@ -61,7 +61,7 @@ pipeline {
                     script {
                         sh "ansible -i inventory ec2  -m ping --private-key Jenkins.pem -u ubuntu"
                         //"ansible-playbook ${playbook} -i ${inventory} --private-key ${privateKeyFile} --user ${user}"                    }
-                }
+                
             }
 
         }
