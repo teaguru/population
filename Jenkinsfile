@@ -20,7 +20,8 @@ pipeline {
 
         }
       }
-
+    }
+  }    
   post {
     failure {
       script {
