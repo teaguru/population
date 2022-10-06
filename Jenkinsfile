@@ -61,7 +61,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
-                        sh 'ansible --version'
+                        sh 'ansible -i inventory ec2 -m ping --private-key ${key} -u ubuntu'
                            }
                 }
             }
