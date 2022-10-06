@@ -28,7 +28,7 @@ pipeline {
         stage('Docker Build') {
             agent {
                 docker {
-                    image 'docker.crinfra.net/k8s-deploy:0.0.9'
+                    image 'maven-build-slave-0.1'
           }
       }
             //docker {
