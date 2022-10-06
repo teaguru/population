@@ -53,7 +53,7 @@ pipeline {
         }
         stage('kubectl') {
              agent {
-                docker { image 'bitnami/kubectl' }
+                docker { image 'lqstoronto/helm-jenkins-slave' }
     }
             //docker {
             //}
