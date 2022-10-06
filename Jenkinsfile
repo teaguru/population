@@ -27,9 +27,7 @@ pipeline {
 
         stage('Docker Build') {
             agent {
-                docker {
-                    image 'maven-build-slave-0.1'
-          }
+                docker 
       }
             //docker {
             //}
