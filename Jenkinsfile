@@ -62,7 +62,7 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
                         sh """
-                        ls
+                        ansible --version
                         """
                     }
                 }
