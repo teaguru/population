@@ -59,7 +59,7 @@ pipeline {
             //}
             //}
             steps {
-              ansiblePlaybook(credentialsId: 'private_key2', inventory: 'inventory', playbook: 'deploy.yml')
+              ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
 
             }
 
