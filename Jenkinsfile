@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { image 'docker-maven-build-slave' }
-    }
+    
     parameters {
         choice (
             name: 'DESTINATION',
