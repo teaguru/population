@@ -51,18 +51,18 @@ pipeline {
             }
 
         }
-        stage('kubectl') {
+        stage('Ansible deploy') {
              agent {
-                docker { image 'lqstoronto/helm-jenkins-slave' }
+                docker { image 'ansible/ansible' }
     }
             //docker {
             //}
             //}
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'key')]) {
                     script {
-                        sh 'kubectl cluster-info'
-                    }
+                        sh "ansible -i inventory ec2  -m ping --private-key Jenkins.pem -u ubuntu"
+                        //"ansible-playbook ${playbook} -i ${inventory} --private-key ${privateKeyFile} --user ${user}"                    }
                 }
             }
 
