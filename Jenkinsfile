@@ -67,7 +67,8 @@ pipeline {
               withCredentials([file(credentialsId: 'ansible-key', variable: 'File')]) {
 
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
-              sh "ansible-playbook deploy.yml -i inventiry --private-key ${File} --user ubuntu"
+              sh "ls"
+              sh "ansible-playbook deploy.yml -i inventory --private-key ${File} --user ubuntu"
 
             }
             }
