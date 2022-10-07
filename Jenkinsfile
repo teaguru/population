@@ -54,7 +54,7 @@ pipeline {
        stage('Ansible deploy') {
              agent {
                 docker {
-                    image 'hippolab/ansible'
+                    image 'webdevops/ansible'
                     args '-u 0:0'
                     reuseNode true
                         }
