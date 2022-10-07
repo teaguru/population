@@ -54,7 +54,7 @@ pipeline {
        stage('Ansible deploy') {
              agent {
                 docker {
-                    image 'ansible/ansible:default'
+                    image 'uisautomation/ansible-playbook:2.10'
                     args '-u 0:0'
                     reuseNode true
                         }
