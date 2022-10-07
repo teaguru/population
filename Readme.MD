@@ -24,11 +24,13 @@ https://github.com/teaguru/terraform-aws-route53
 
 That could be necessary to add autoscaling groups.
 ![N|Pic](https://github.com/teaguru/population/blob/main/Cloud_Architecture.png?raw=true)
+
 There is codebase:
 https://github.com/teaguru/population
 
 Main logic is here:
 https://github.com/teaguru/population/blob/main/script.py
+
 Later we could add uploading of the artifact to S3. For now country for selection is hardcoded but that culd be fixed.
 Application could be run manually with 
 ``flask run``
