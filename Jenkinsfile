@@ -52,9 +52,7 @@ pipeline {
 
         }
        stage('Ansible deplpy') {
-             agent {
-                docker { image 'ibmcom/ansible-lifecycle-driver:3.5.1' }
-    }
+  
             //docker {
             //}
             //}
