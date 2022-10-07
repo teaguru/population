@@ -68,7 +68,7 @@ pipeline {
 
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
               sh "ls"
-              sh "ansible-playbook deploy.yml -i inventory --private-key ${File} --user ubuntu"
+              sh "ansible-playbook deploy.yml -i inventory --user ubuntu"
 
             }
             }
