@@ -63,10 +63,11 @@ pipeline {
             //}
             //}
             steps {
-              withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
+             // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
+              withCredentials([file(credentialsId: 'ansible-key', variable: 'Jenkins.pem')]) {
 
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
-              sh "ansible-playbook deploy.yml -i inventiry --private-key ${keyFileVariable} --user ubuntu"
+              sh "ansible-playbook deploy.yml -i inventiry --private-key ${variable} --user ubuntu"
 
             }
             }
