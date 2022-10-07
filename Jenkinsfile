@@ -54,19 +54,16 @@ pipeline {
        stage('Ansible deploy') {
              agent {
                 docker {
-                    image 'suckowbiz/ansible-playbook:latest'
+                    image 'openebs/ansible-runner'
                     args '-u 0:0'
                     reuseNode true
                         }
     }
-            //docker {
-            //}
-            //}
             steps {
              // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
               withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
               sh """sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml"""
-              //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
+              ls deploy.yml
               sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
 
             }
