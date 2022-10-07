@@ -1,6 +1,7 @@
 pipeline {
     agent any
     parameters {
+        choice (name: 'DESTINATION', choices: getAllEnvironments(variables), description: 'Which environment do you want to deploy to?')
         choice (
             name: 'DESTINATION',
             description: 'Which environment do you want to deploy to?',
@@ -48,22 +49,22 @@ pipeline {
             }
 
         }
-       stage('Ansible deploy') {
-             agent {
+        stage('Ansible deploy') {
+            agent {
                 docker {
                     image 'openebs/ansible-runner'
                     args '-u 0:0'
                     reuseNode true
-                        }
-    }
-            steps {
-             // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
-              withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
-              sh """sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml"""
-              sh 'ls deploy.yml'
-              sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
-
+                }
             }
+            steps {
+                // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
+                withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
+                    sh """sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml"""
+                    sh 'ls deploy.yml'
+                    sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
+
+                }
             }
 
         }
