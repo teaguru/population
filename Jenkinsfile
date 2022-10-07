@@ -54,7 +54,7 @@ pipeline {
        stage('Ansible deploy') {
              agent {
                 docker {
-                    image 'webdevops/ansible'
+                    image 'ansible/ansible:default'
                     args '-u 0:0'
                     reuseNode true
                         }
