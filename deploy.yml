@@ -3,13 +3,13 @@
 - hosts: all
   become: true
 
-  #roles:
-  #  - ansible-role-docker
+  roles:
+    - ansible-role-docker
 
   tasks:
     - name: deploy app docker container
-      community.docker.docker_container:
-        image: 858784405926.dkr.ecr.us-east-1.amazonaws.com/population:95f98b7a9e6
+      docker_container:
+        image: 858784405926.dkr.ecr.us-east-1.amazonaws.com/population:image_tag
         name: app
         state: started
         auto_remove: true
