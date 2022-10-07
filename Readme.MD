@@ -41,6 +41,8 @@ Application could be run manually with
 CI/CD implemented with Jenkins
 There is Jenkinsfile:
 https://github.com/teaguru/population/blob/main/Jenkinsfile
+
 We use ansible role to deploy application.
 Pipeline is simple, we could add testing stages and quality gates.
+Also dev, stage and prod enviroments must be implemented.
 
