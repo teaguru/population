@@ -64,11 +64,10 @@ pipeline {
             //}
             steps {
              // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
-              withCredentials([file(credentialsId: 'ansible-key', variable: 'File')]) {
+              withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
 
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
-              sh "ls"
-              sh "ansible-playbook deploy.yml -i inventory --user ubuntu"
+              sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
 
             }
             }
