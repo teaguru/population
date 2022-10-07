@@ -52,11 +52,16 @@ pipeline {
 
         }
        stage('Ansible deplpy') {
-  
+        docker {
+          image 'hippolab/ansible'
+          args '-u 0:0'
+          reuseNode true
+        }
             //docker {
             //}
             //}
             steps {
+
               ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
 
             }
