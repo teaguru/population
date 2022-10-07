@@ -52,6 +52,7 @@ def select_country(county_name):
     python_file.write(table)
     print(table)
     python_file.close()
+    #shutil.copy2(file_name, '/templates')
 
 select_country('Australia')     
 

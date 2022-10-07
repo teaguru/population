@@ -1,7 +1,7 @@
 # Population data application
 ## Architecture
 ### Lambda - dataset uploader
-First part of the service is lambda in AWS, wich download the dataset and upload in to the s3 horly by event bride trigger.
+First part of the service is lambda in AWS, which downloads the dataset and upload in to the s3 horly by event bride trigger.
 ![N|Pic](https://github.com/teaguru/population/blob/main/lambda_schedule.png?raw=true)
 There is the lambda code:
 https://github.com/teaguru/population/blob/main/Lambda.py
