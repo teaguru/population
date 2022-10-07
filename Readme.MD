@@ -16,6 +16,7 @@ Then we have a web application which is based on Flask.
 > As for me, that part does not require Docker and could be also realised with lanbda, but I contenerized it, because it's task requirement.
 
 Application extracts data from s3 bucket and provides it as html by particular country.
+![N|Pic] (https://github.com/teaguru/population/blob/main/results.png?raw=true)
 Service is hosted at ec2 instances.
 It is better to provide infrastructure with terraform.
 For example, some of my previous terraform repos:
