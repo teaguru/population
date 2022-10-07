@@ -27,9 +27,6 @@ pipeline {
 
         stage('Docker Build') {
             agent any
-            //docker {
-            //}
-            //}
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     script {
