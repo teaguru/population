@@ -3,4 +3,3 @@
 
 [ec2:vars]
 remote_tmp= /tmp
-ansible_python_interpreter = /usr/bin/python3
