@@ -33,7 +33,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     script {
-                        if (ALREADY_BUILT && !FORCE_DOCKER_BUILD_BOOLEAN) {
+                        if (ALREADY_BUILT) {
                             echo "The app was already built for COMMIT_HASH: ${COMMIT_HASH}."
                         } else {
                             sh """
