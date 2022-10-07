@@ -2,6 +2,7 @@
 ## Architecture
 ### Lambda - dataset uploader
 First part of the service is lambda in AWS, wich download the dataset and upload in to the s3 horly by event bride trigger.
+![N|Pic](hhttps://github.com/teaguru/population/blob/main/lambda_schedule.png?raw=true)
 There is the lambda code:
 https://github.com/teaguru/population/blob/main/Lambda.py
 ![N|Pic](https://github.com/teaguru/population/blob/main/lambda.png?raw=true)
