@@ -65,7 +65,7 @@ pipeline {
             steps {
              // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
               withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
-              sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml
+              sh """sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml"""
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
               sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
 
