@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice (name: 'DESTINATION', choices: getAllEnvironments(variables), description: 'Which environment do you want to deploy to?')
+        gitParameter (branchFilter: 'origin/(release.*|sprint.*|feature.*|hotfix.*|bugfix.*|master|develop)', defaultValue: 'none', name: 'GIT_REF', type: 'PT_BRANCH_TAG', useRepository: ".*${variables.application.gitApplicationName}.git", sortMode: 'DESCENDING_SMART')
         choice (
             name: 'DESTINATION',
             description: 'Which environment do you want to deploy to?',
