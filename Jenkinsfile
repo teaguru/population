@@ -63,7 +63,7 @@ pipeline {
             //}
             //}
             steps {
-              withCredentials([usernamePassword(credentialsId: 'private_key', keyFileVariable: 'key')]) {
+              withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'key')]) {
 
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
               sh "ansible-playbook ${playbook} -i ${inventory} --private-key ${privateKeyFile} --user ${user}"
