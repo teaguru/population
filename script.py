@@ -42,7 +42,7 @@ def select_country(county_name):
             if row[0] == county_name:
                 rows.append(row)
     print(header)
-    #print(rows)
+    print(rows)
     table = (tabulate(rows, tablefmt='html'))
 
     file_name=county_name +  "_index.html"   

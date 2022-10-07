@@ -12,9 +12,18 @@ Than we have a web application wich based on Flask.
 
 Application extract data from s3 bucket and provede as html by particular country.
 Service is hosted at ec2 instances.
+Infrastructure should be better provided with terraform.
+For example one of my previous terraform repos:
+https://github.com/teaguru/Terraform-Aws-Wordpress
+
+
+That could be necessary to add autoscaling groups.
 ![N|Pic](https://github.com/teaguru/population/blob/main/Cloud_Architecture.png?raw=true)
 There is codebase:
 https://github.com/teaguru/population
+Main logic is here:
+https://github.com/teaguru/population/blob/main/script.py
+Later we could add uploading of the artifact to S3. For now country for selection is hardcoded but that culd be fixed.
 
 
 ### CI/CD
