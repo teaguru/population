@@ -29,6 +29,15 @@
       pip:
         name: docker
 
+    - name: deploy nginx docker container
+      docker_container:
+        image: 858784405926.dkr.ecr.us-east-1.amazonaws.com/population:image_tag
+        name: app
+        state: started
+        auto_remove: true
+        ports:
+          - "5000:5000"    
+
     - name: Manage log
       docker_container:
         log_driver: daemon.json

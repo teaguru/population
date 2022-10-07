@@ -54,7 +54,7 @@ pipeline {
        stage('Ansible deploy') {
              agent {
                 docker {
-                    image 'uisautomation/ansible-playbook:2.10'
+                    image 'suckowbiz/ansible-playbook:latest'
                     args '-u 0:0'
                     reuseNode true
                         }
@@ -65,7 +65,7 @@ pipeline {
             steps {
              // withCredentials([sshUserPrivateKey(credentialsId: 'private_key', keyFileVariable: 'Key')]) {
               withCredentials([file(credentialsId: 'ansible-key', variable: 'FILE')]) {
-
+              sed 's/image_tag/${COMMIT_HASH}/g' deploy.yml
               //ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventory', playbook: 'deploy.yml')
               sh "ansible-playbook deploy.yml -i inventory --private-key ${FILE} --user ubuntu"
 
