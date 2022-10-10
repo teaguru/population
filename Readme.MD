@@ -43,6 +43,10 @@ There is Jenkinsfile:
 https://github.com/teaguru/population/blob/main/Jenkinsfile
 
 We use ansible role to deploy application.
+There is a playbook:
+https://github.com/teaguru/population/blob/main/deploy.yml
+There is a docker install role:
+https://github.com/teaguru/population/tree/main/roles
 Pipeline is simple, we could add testing stages and quality gates.
 Also dev, stage and prod enviroments must be implemented.
 
